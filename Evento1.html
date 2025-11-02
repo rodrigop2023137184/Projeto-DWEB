@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+<style>
+.bg-primary {
+    background-color: #420e76 !important;
+  }
+
+.bg-secondary {
+    background-color:#0F172A !important;
+  } 
+.border-primary { 
+    border-color:  #FF00C8!important;
+  }
+.navbar-nav .nav-link {
+    padding: 8px 16px;
+    margin: 0 4px;
+    transition: background-color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.navbar-nav .nav-link.active {
+    border-bottom: 2px solid white;
+}
+.form-control {
+    background-color: #0F172A;
+    border: 1px solid #FF00C8;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control:focus {
+    border-color: #FF00C8;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 200, 0.25);
+    background-color: #0F172A;
+    color: #fff;
+}
+.form-control::placeholder {
+    color: #ff00c865;
+    opacity: 1;
+}
+</style>
+</head>
+<body class="bg-secondary d-flex flex-column min-vh-100">
+      <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="container-fluid">
+        <!-- Brand/Logo (opcional) -->
+        <a class="navbar-brand fw-bold text-light" href="Home.html">CRC</a>
+        
+        <!-- Botão para mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <div class="navbar-nav">
+                <div class="nav-item">
+                    <a class="nav-link fw-bold text-light" href="Home.html">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link active text-light" href="Eventos.html">Eventos</a>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold text-light" href="Merch.html">Merch</a>
+                </li>
+                <div class="nav-item">
+                    <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid p-0">
+    <div class="row g-0" style="min-height: 100vh;">
+        
+        <div class="col-md-6 p-0 ">
+            <img src="imgs/AV-neonrun-2016-2299SAM_9014.jpg" alt="" class="w-100 h-100" style=" object-fit: cover;">
+        </div>
+
+        
+        <div class="col-md-6 d-flex align-items-center justify-content-center" style="min-height: 500px;">
+            <div style="width: 400px; padding: 2rem;">
+                <form action="trataInscricao.php" method="get">
+                    <div>
+                        <label for="" class="text-white">Nome</label>
+                        <input id="f-nome" name="nome" type="text" class="form-control" placeholder="introduza o seu nome">
+                        <label for="" class="text-white">Email</label>
+                        <input id="f-email" name="email" type="email" class="form-control" placeholder="introduza o seu email">
+                        <label for="" class="text-white">Telefone</label>
+                        <input id="f-ntel" name="ntel" type="tel" class="form-control" placeholder="nº de telefone">
+                    </div>
+                    <div class="mt-3">
+                        <a class="btn btn- primarybtn-sm bg-primary border-primary text-white" href="#" role="button">Inscrever</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="mt-auto bg-primary text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 Coimbra Running Club. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>    
+      

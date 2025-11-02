@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  
+<style>
+    .bg-primary {
+    background-color: #420e76 !important;
+  }
+    .navbar-nav .nav-link {
+    padding: 8px 16px;
+    margin: 0 4px;
+    transition: background-color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.navbar-nav .nav-link.active {
+    border-bottom: 2px solid white;
+}
+body {
+    background-image: url('imgs/AV-neonrun-2016-2299SAM_9014.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+  </style>
+
+
+</head>
+<body>
+    
+
+      <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="container-fluid">
+        <!-- Brand/Logo (opcional) -->
+        <a class="navbar-brand fw-bold text-light" href="Home.html">CRC</a>
+        
+        <!-- Botão hamburger para mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Links da navbar -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <div class="navbar-nav">
+                <div class="nav-item">
+                    <a class="nav-link active fw-bold text-light" href="Home.html">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link fw-bold text-light" href="Eventos.html">Eventos</a>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold text-light" href="Merch.html">Merch</a>
+                </li>
+                <div class="nav-item">
+                    <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+            <!-- Fixed container positioned at the bottom-left using Bootstrap utilities -->
+            <div class="fixed-bottom m-3 text-white p-3 rounded shadow" style="background-color:#9c07c251; backdrop-filter: blur(10px); left: 1rem; bottom: 1rem; max-width: 300px;">
+                <p class="mb-1">Nome do Evento1</p>
+                <p class="mb-2 small">Data do evento</p>
+                <p class="mb-2 small">Local do evento</p>
+                <p class="mb-2 small">Descrição do evento wsdasadafsffaslldlasdlalsd</p>
+                <a class="btn btn-light btn-sm" href="Evento1.html" role="button">Saber mais</a>
+            </div>
+
+            
+            
+</body>
+</html>
