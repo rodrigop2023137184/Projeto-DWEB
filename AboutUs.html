@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coimbra Running Club - Eventos</title>
+  <title>Coimbra Running Club - About Us</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <style>
@@ -34,18 +34,51 @@
       border-bottom: 2px solid white;    
     }
 
-    .card {
-    transition: all 0.3s ease;
+    .bg-image-full {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px; /* Garante altura mínima */
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(255, 0, 200, 0.3) !important;
+/* Responsividade do header */
+@media (max-width: 768px) {
+    .bg-image-full {
+        min-height: 300px;
+    }
+}
+
+/* Melhora o contraste da imagem do logo */
+.header-logo {
+    max-width: 250px;
+    width: 90%;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Melhorias de legibilidade */
+.lh-lg {
+    line-height: 1.8 !important;
+}
+
+/* Animação suave ao scroll */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* Sombra sutil nos cards */
+.shadow-sm {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 }
   </style>
 </head>
 <body class="bg-secondary">
-      <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container-fluid">
         <!-- Brand/Logo (opcional) -->
         <a class="navbar-brand fw-bold text-light" href="Home.html">CRC</a>
@@ -61,19 +94,19 @@
                     <a class="nav-link fw-bold text-light" href="Home.html">Home</a>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link active fw-bold text-light" href="Eventos.html">Eventos</a>
+                    <a class="nav-link fw-bold text-light" href="Eventos.html">Eventos</a>
                 </div>
                 <li class="nav-item">
                     <a class="nav-link fw-bold text-light" href="Merch.html">Merch</a>
                 </li>
                 <div class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
+                    <a class="nav-link active fw-bold text-light" href="AboutUs.html">About Us</a>
                 </div>
             </div>
         </div>
         
 <div class="navbar-nav ms-auto">
-  <a class="nav-link text-light position-relative" href="Carrinho.html">
+    <a class="nav-link text-light position-relative" href="Carrinho.html">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
           </svg>
@@ -88,106 +121,54 @@
 </div>
     </div>
 </nav>
-      <div class="container-fluid py-5">
-  <div class="row g-3 mb-5">
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/AV-neonrun-2016-2299SAM_9014.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_2.jpg" class="card-img-top" alt="Evento">
-       <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_3.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
-
-     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_4.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_5.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_6.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<header class="position-relative py-5 bg-image-full" style="background-image: url('imgs/coimbra.avif'); background-size: cover; background-position: center;">
+    <!-- Overlay escuro -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.4);"></div>
     
-    
- <footer class="mt-5 bg-primary text-white pt-5 pb-3">
+    <!-- Conteúdo -->
+    <div class="position-relative text-center my-5">
+        <img class="img-fluid rounded-circle mb-4" src="imgs/logo branco.png" alt="Logo Coimbra Running Club" style="max-width: 250px; width: 90%;" />
+        <h1 class="text-white fw-bold mb-2">Unidos pelo movimento</h1>
+    </div>
+</header>
+        <!-- Content section-->
+        <section class="py-5" style="background: linear-gradient(135deg, #0F172A 0%, #420e76 100%);">
+    <div class="container my-5">
+        <div class="row g-5 align-items-center">
+            <!-- Coluna Esquerda: Imagem/Ícone -->
+            <div class="col-lg-5 text-center">
+                <div class="p-5 bg-white bg-opacity-10 rounded-circle d-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="#FF00C8" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                    </svg>
+                </div>
+                <h2 class="text-white mt-4 fw-bold">Quem Somos?</h2>
+            </div>
+
+            <!-- Coluna Direita: Conteúdo -->
+            <div class="col-lg-7">
+                <p class="lead text-white mb-4">
+                    O Coimbra Running Club nasceu da paixão pela corrida e da vontade de criar uma comunidade ativa, unida e inspiradora no coração da cidade de Coimbra.
+                </p>
+                
+                <p class="text-white-50 lh-lg mb-4">
+                    Fundado por corredores para corredores, o nosso clube reúne pessoas de todas as idades e níveis de experiência — desde quem está a dar os primeiros passos até atletas experientes que procuram novos desafios.
+                </p>
+
+                <div class="border-start border-4 ps-4 mt-5" style="border-color: #FF00C8 !important;">
+                    <h3 class="h5 fw-bold text-white mb-3">A Nossa Missão</h3>
+                    <p class="text-white-50 mb-0">
+                        Promover um estilo de vida saudável, incentivar a prática regular de corrida e fortalecer o espírito comunitário através de treinos, eventos e formação.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+        <footer class="mt-auto bg-primary text-white pt-5 pb-3">
     <div class="container">
         <div class="row g-4">
             <!-- Coluna 1: Sobre o Clube -->
@@ -282,6 +263,6 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

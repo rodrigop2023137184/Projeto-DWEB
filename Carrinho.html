@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coimbra Running Club - Eventos</title>
+  <title>Coimbra Running Club - Carrinho</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/carrinho.js"></script>
   
   <style>
     .bg-primary {
@@ -17,6 +18,34 @@
     
     .border-primary { 
       border-color: #FF00C8 !important;
+    }
+
+    .text-primary {
+      color: #FF00C8 !important;
+    }
+
+    .btn-primary {
+      background-color: #420e76 !important;
+      border-color: #420e76 !important;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #5a1199 !important;
+      border-color: #5a1199 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(66, 14, 118, 0.4);
+    }
+
+    .btn-outline-primary {
+      color: #420e76 !important;
+      border-color: #420e76 !important;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: #420e76 !important;
+      border-color: #420e76 !important;
+      color: white !important;
     }
 
     .navbar-nav .nav-link {
@@ -34,159 +63,164 @@
       border-bottom: 2px solid white;    
     }
 
-    .card {
-    transition: all 0.3s ease;
-}
+    .product-card {
+      transition: all 0.3s ease;
+      height: 100%;
+    }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(255, 0, 200, 0.3) !important;
-}
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 0, 200, 0.2);
+    }
+
+    .product-img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .cart-item {
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .cart-item:hover {
+      border-left-color: #FF00C8;
+      background-color: rgba(66, 14, 118, 0.05);
+    }
+
+    .quantity-btn {
+      width: 35px;
+      height: 35px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #420e76;
+      background: white;
+      color: #420e76;
+      transition: all 0.3s ease;
+    }
+
+    .quantity-btn:hover {
+      background-color: #420e76;
+      color: white;
+    }
+
+    .empty-cart {
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hover-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .hover-link:hover {
+      color: #FF00C8 !important;
+    }
+
+    footer a svg {
+      transition: transform 0.3s ease, opacity 0.8s;
+    }
+
+    footer a:hover svg {
+      transform: translateY(-3px) scale(1.1);
+      opacity: 0.8;
+    }
   </style>
 </head>
-<body class="bg-secondary">
-      <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+<body class="bg-light">
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container-fluid">
-        <!-- Brand/Logo (opcional) -->
-        <a class="navbar-brand fw-bold text-light" href="Home.html">CRC</a>
-        
-        <!-- Botão para mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <div class="navbar-nav">
-                <div class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="Home.html">Home</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link active fw-bold text-light" href="Eventos.html">Eventos</a>
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="Merch.html">Merch</a>
-                </li>
-                <div class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
-                </div>
-            </div>
+      <a class="navbar-brand fw-bold text-light" href="Home.html">CRC</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <div class="navbar-nav">
+          <div class="nav-item">
+            <a class="nav-link fw-bold text-light" href="Home.html">Home</a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link fw-bold text-light" href="Eventos.html">Eventos</a>
+          </div>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold text-light" href="Merch.html">Merch</a>
+          </li>
+          <div class="nav-item">
+            <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
+          </div>
         </div>
-        
-<div class="navbar-nav ms-auto">
-  <a class="nav-link text-light position-relative" href="Carrinho.html">
+      </div>
+      
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link text-light position-relative" href="Carrinho.html">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
           </svg>
-          <span class="badge-cart" id="cart-count">0</span>
+          <span id="cart-count">0</span>
         </a>
-    <a class="nav-link text-light " href="login.html" role="button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <a class="nav-link text-light" href="login.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-        </svg>  
-    </a>
-</div>
-    </div>
-</nav>
-      <div class="container-fluid py-5">
-  <div class="row g-3 mb-5">
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/AV-neonrun-2016-2299SAM_9014.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
+          </svg>
+        </a>
       </div>
     </div>
+  </nav>
 
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_2.jpg" class="card-img-top" alt="Evento">
-       <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
+  <!-- Header do Carrinho -->
+  <section class="bg-primary py-4 text-white">
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart3 me-3" viewBox="0 0 16 16">
+          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </svg>
+        <div>
+          <h1 class="h3 fw-bold mb-0">O Meu Carrinho</h1>
+          <p class="mb-0 small opacity-75">Revê os teus produtos antes de finalizar a tua compra</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_3.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
+  <!-- Carrinho de Compras -->
+  <section class="py-5 bg-white" id="carrinho">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0" style="color: #420e76;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart3 me-2" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          Carrinho de Compras
+        </h2>
+        <button class="btn btn-outline-danger btn-sm" onclick="clearCart()" id="clear-btn" style="display: none;">
+          Limpar Carrinho
+        </button>
       </div>
-    </div>
 
-     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_4.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
+      <!-- Carrinho Vazio -->
+      <div id="empty-cart" class="empty-cart text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#ccc" class="bi bi-cart-x mb-3" viewBox="0 0 16 16">
+          <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793 7.354 5.646z"/>
+          <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
+        <h4 class="text-muted">O teu carrinho está vazio</h4>
       </div>
+      
     </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_5.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow-cor border border-primary" style="max-width: 300px; margin: 0 auto; margin-top: 3rem;">
-        <img src="imgs/run_aesthetic_6.jpg" class="card-img-top" alt="Evento">
-        <div class="card-body">
-          <h5 class="fw-bolder">
-            <a class="stretched-link card-title text-decoration-none text-dark" href="Evento1.html">Coimbra Neon Run</a>
-          </h5>        
-          <h6 class="card-subtitle mb-2 text-muted">15/12/2025</h6>
-          <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>Parque Verde do Mondego</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
+  </section>
+
+  
+
  <footer class="mt-5 bg-primary text-white pt-5 pb-3">
     <div class="container">
         <div class="row g-4">
@@ -281,7 +315,10 @@
         </div>
     </div>
 </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/carrinho.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    
 </body>
 </html>

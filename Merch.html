@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coimbra Running Club - Merch</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
 .bg-primary {
     background-color: #420e76 !important;
@@ -30,6 +30,42 @@
 .navbar-nav .nav-link.active {
     border-bottom: 2px solid white;
 }
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(255, 0, 200, 0.3) !important;
+}
+
+/* Fundo com imagem ou gradiente */
+body.bg-secondary {
+    background: linear-gradient(135deg, #0F172A 0%, #420e76 100%);
+    background-attachment: fixed;
+}
+
+/* Glass effect no header */
+.glass-header {
+    background: rgba(66, 14, 118, 0.3) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 0, 200, 0.1) 0%, 
+        rgba(66, 14, 118, 0.2) 100%);
+    z-index: 1;
+}
 </style>
 </head>
 <body class="bg-secondary">
@@ -49,10 +85,10 @@
                     <a class="nav-link fw-bold text-light" href="Home.html">Home</a>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link text-light" href="Eventos.html">Eventos</a>
+                    <a class="nav-link fw-bold text-light" href="Eventos.html">Eventos</a>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link active text-light" href="Merch.html">Merch</a>
+                    <a class="nav-link active fw-bold text-light" href="Merch.html">Merch</a>
                 </li>
                 <div class="nav-item">
                     <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
@@ -61,6 +97,12 @@
         </div>
         
 <div class="navbar-nav ms-auto">
+    <a class="nav-link text-light position-relative" href="Carrinho.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          <span class="badge-cart" id="cart-count">0</span>
+        </a>
     <a class="nav-link text-light " href="login.html" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -70,22 +112,28 @@
 </div>
     </div>
 </nav>
-        
-        <section class="py-5">
+  
+<!-- Header com Glass Effect -->
+<section class="glass-header py-4 text-white position-relative overflow-hidden">
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="text-center">
+            <h1 class="h2 fw-bold mb-2">Loja Oficial CRC</h1>
+            <p class="mb-0 small">Equipamento de qualidade para corredores apaixonados</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/vecteezy_professional-white-blank-tshirt-ai-generated_34434822.jpg" alt="imagem tshirtpreta" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">T-shirt</a>
                                     </h5>                                   
-                                    <!-- Product price-->
                                     <p>25.00€</p>
                                 </div>
                             </div>
@@ -94,26 +142,12 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/GarrafaCRC2.png" alt="imagem GarrafaCRC2" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">Garrafa metálica</a>
                                     </h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
                                     18.00€
                                 </div>
                             </div>
@@ -122,18 +156,12 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/vecteezy_3d-render-blank-t-shirt-ai-generated_34434757.jpg" alt="imagem tshirtbranca" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">T-shirt</a>
                                     </h5>
-                                    <!-- Product price-->
                                     25.00€
                                 </div>
                             </div>
@@ -143,24 +171,12 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/hoodie_com_logo.png" alt="imagem hoodie_com_logo" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">Hoodie</a>
                                     </h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
                                     40.00€
                                 </div>
                             </div>
@@ -169,18 +185,12 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/MeiasCRC.png" alt="imagem meiasCRC" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">Meias</a>
                                     </h5>
-                                    <!-- Product price-->
                                     25.00€
                                 </div>
                             </div>
@@ -188,16 +198,12 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/calcas_com_logo.png" alt="imagem das Calças" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">Calças</a>
                                     </h5>
-                                    <!-- Product price-->
                                     28.00€
                                 </div>
                             </div>
@@ -205,26 +211,12 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/calcoes_com_logo.png" alt="imagem calcas_com_logo" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">Calção</a>
-                                    </h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->                      
+                                    </h5>                   
                                     18.00€
                                 </div>
                             </div>
@@ -232,37 +224,116 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow border border-primary h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="imgs/vecteezy_ai-generated-chocolate-chip-cookies-on-orange-background_34991657.jpg" alt="imagem tshirtcolorida" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
                                     <h5 class="fw-bolder">
                                         <a href="Produto1.html" class="stretched-link text-decoration-none text-dark">T-Shirt</a>
                                     </h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    40.00€
+                                    25.00€
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+</section>
 
-        <footer class="mt-auto bg-primary text-white text-center py-3">
+ <footer class="mt-auto bg-primary text-white pt-5 pb-3">
     <div class="container">
-        <p class="mb-0">&copy; 2025 Coimbra Running Club. Todos os direitos reservados.</p>
+        <div class="row g-4">
+            <!-- Coluna 1: Sobre o Clube -->
+            <div class="col-md-4 text-center text-md-start">
+                <h5 class="fw-bold mb-3">Coimbra Running Club</h5>
+                <p class="small mb-3">
+                    Unidos pela paixão de correr. Junta-te à nossa comunidade e descobre o prazer de correr em Coimbra.
+                </p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                    <!-- Redes Sociais -->
+                    <a href="#" class="text-white" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Strava">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M6.731 0 2 9.125h2.788L6.73 5.497l1.93 3.628h2.766L6.731 0zm4.694 9.125-1.372 2.756L8.68 9.125H6.547L10.053 16l3.484-6.875h-2.112z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:info@coimbrarunning.pt" class="text-white" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Links Rápidos -->
+            <div class="col-md-4 text-center">
+                <h5 class="fw-bold mb-3">Links Rápidos</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="Home.html" class="text-white text-decoration-none hover-link">Home</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="Eventos.html" class="text-white text-decoration-none hover-link">Eventos</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="Merch.html" class="text-white text-decoration-none hover-link">Merch</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="AboutUs.html" class="text-white text-decoration-none hover-link">About Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Contacto -->
+            <div class="col-md-4 text-center text-md-end">
+                <h5 class="fw-bold mb-3">Contacto</h5>
+                <ul class="list-unstyled small">
+                    <li class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill me-2" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                        Coimbra, Portugal
+                    </li>
+                    <li class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                        </svg>
+                        info@coimbrarunning.pt
+                    </li>
+                    <li class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill me-2" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        +351 XXX XXX XXX
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Separador -->
+        <hr class="my-4 border-white opacity-25">
+
+        <!-- Direitos Autorais -->
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start small">
+                <p class="mb-2 mb-md-0">&copy; 2025 Coimbra Running Club. Todos os direitos reservados.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end small">
+                <a href="#" class="text-white text-decoration-none hover-link me-3">Política de Privacidade</a>
+                <a href="#" class="text-white text-decoration-none hover-link">Termos de Uso</a>
+            </div>
+        </div>
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

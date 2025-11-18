@@ -1,32 +1,28 @@
-<?php
-if(iset($_GET['Evento1'])){
-    $eventoID = $_GET['Evento1'];
-}else {
-    header('Location: Home.php');
-    exit();
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Site</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <title>Corrida Noturna de Coimbra - Eventos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
 .bg-primary {
     background-color: #420e76 !important;
-  }
+}
 
 .bg-secondary {
-    background-color:#0F172A !important;
-  } 
+    background-color: #0F172A !important;
+} 
+
 .border-primary { 
-    border-color:  #FF00C8!important;
-  }
+    border-color: #FF00C8 !important;
+}
+
+.text-accent {
+    color: #FF00C8 !important;
+}
+
 .navbar-nav .nav-link {
     padding: 8px 16px;
     margin: 0 4px;
@@ -41,101 +37,545 @@ if(iset($_GET['Evento1'])){
 .navbar-nav .nav-link.active {
     border-bottom: 2px solid white;
 }
+/**posicionamentos do banner **/
+.evento-hero {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.evento-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(15,23,42,0.9));
+}
+
+/** formatação de texto sobre o banner **/
+.evento-hero-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+}
+
+.info-card {
+    background-color: rgba(66, 14, 118, 0.1);
+    border: 2px solid #FF00C8;
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 0, 200, 0.3);
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #420e76, #FF00C8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 .form-control {
     background-color: #0F172A;
     border: 1px solid #FF00C8;
-    border-radius: 0.25rem;
-    padding: 0.375rem 0.75rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: #fff;
 }
+
 .form-control:focus {
     border-color: #FF00C8;
     box-shadow: 0 0 0 0.2rem rgba(255, 0, 200, 0.25);
     background-color: #0F172A;
     color: #fff;
 }
+
 .form-control::placeholder {
     color: #ff00c865;
-    opacity: 1;
+}
+
+.btn-register-event {
+    background: linear-gradient(135deg, #420e76, #FF00C8);
+    border: none;
+    padding: 12px 40px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-register-event:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 0, 200, 0.4);
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #420e76, #FF00C8);
+}
+
+/**degrades**/
+.badge-custom {
+    background: linear-gradient(135deg, #420e76, #FF00C8);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/**Cria uma timeline**/
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 2rem;
+}
+
+/**pontos na timeline**/
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #FF00C8;
+    border-radius: 50%;
+    border: 3px solid #0F172A;
+}
+
+/**linha vertical**/
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 20px;
+    width: 2px;
+    height: calc(100% + 20px);
+    background: #FF00C8;
+}
+
+/** remove o ultimo traço da timeline **/
+.timeline-item:last-child::after {
+    display: none;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 0, 200, 0.2);
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.modal-content {
+    background-color: #0F172A;
+    border: 2px solid #FF00C8;
+}
+
+.alert-custom {
+    background-color: rgba(255, 0, 200, 0.1);
+    border: 1px solid #FF00C8;
+    color: #fff;
 }
 </style>
 </head>
-<body class="bg-secondary d-flex flex-column min-vh-100">
-      <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <div class="container-fluid">
-        <!-- Brand/Logo (opcional) -->
-        <a class="navbar-brand fw-bold text-light" href="Home.html">CRC</a>
-        
-        <!-- Botão para mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <div class="navbar-nav">
-                <div class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="Home.html">Home</a>
+<body class="bg-secondary text-white d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-light" href="Home.html">CRC</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <div class="navbar-nav">
+                    <div class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="Home.html">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link active fw-bold text-light" href="Eventos.html">Eventos</a>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="Merch.html">Merch</a>
+                    </li>
+                    <div class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
+                    </div>
                 </div>
-                <div class="nav-item">
-                    <a class="nav-link active text-light" href="Eventos.html">Eventos</a>
+            </div>
+            
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-light position-relative" href="Carrinho.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    <span class="badge-cart" id="cart-count">0</span>
+                </a>
+                <a class="nav-link text-light" href="login.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>  
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- banner de fundo  -->
+    <div class="evento-hero" style="background-image: url('imgs/AV-neonrun-2016-2299SAM_9014.jpg');">
+        <div class="evento-hero-content d-flex align-items-end">
+            <div class="container pb-4">
+                <span class="badge badge-custom mb-2">5 KM · 10 KM</span>
+                <h1 class="display-4 fw-bold mb-2">Coimbra Neon Run</h1>
+                <p class="lead mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event me-2" viewBox="0 0 16 16">
+                        <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                    </svg>
+                    15 de Dezembro de 2025 · 20:00
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt ms-3 me-2" viewBox="0 0 16 16">
+                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    Parque Verde do Mondego
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row g-4">
+            <!-- Coluna Esquerda: Informações -->
+            <div class="col-lg-8">
+                <!-- Informação Rápida -->
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3 col-6">
+                        <div class="info-card text-center">
+                            <div class="info-icon mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg>
+                            </div>
+                            <h6 class="fw-bold mb-1">Duração</h6>
+                            <p class="small mb-0 text-accent">2-3 horas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="info-card text-center">
+                            <div class="info-icon mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+                                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                                    <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                                </svg>
+                            </div>
+                            <h6 class="fw-bold mb-1">Participantes</h6>
+                            <p class="small mb-0 text-accent">200/500</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="info-card text-center">
+                            <div class="info-icon mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+                                    <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <h6 class="fw-bold mb-1">Transporte</h6>
+                            <p class="small mb-0 text-accent">Incluído</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="info-card text-center">
+                            <div class="info-icon mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+                                    <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"/>
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+                                </svg>
+                            </div>
+                            <h6 class="fw-bold mb-1">Inscrição</h6>
+                            <p class="small mb-0 text-accent">15€ - 20€</p>
+                        </div>
+                    </div>
                 </div>
-                <li class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="Merch.html">Merch</a>
-                </li>
-                <div class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="AboutUs.html">About Us</a>
+
+                <!-- Sobre o Evento -->
+                <section class="mb-5">
+                    <h2 class="section-title">Sobre o Evento</h2>
+                    <p class="lead mb-3">
+                        A Corrida Noturna de Coimbra regressa para mais uma edição emocionante! Prepare-se para correr sob as luzes da cidade histórica numa experiência única que combina desporto, diversão e cultura.
+                    </p>
+                    <p>
+                        Este evento oferece dois percursos distintos: 5km para iniciantes e famílias, e 10km para os mais experientes. Ambos os percursos atravessam os pontos mais icónicos de Coimbra, proporcionando vistas deslumbrantes da cidade iluminada.
+                    </p>
+                    <p>
+                        Todos os participantes receberão um kit de corredor com t-shirt técnica oficial do evento, dorsal com chip de cronometragem, e diversos brindes de patrocinadores. Haverá também postos de hidratação ao longo do percurso e um lanche final para celebrar.
+                    </p>
+                </section>
+
+                <!-- Percurso -->
+                <section class="mb-5">
+                    <h2 class="section-title">Percurso</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="p-4 rounded" style="background-color: rgba(66, 14, 118, 0.2); border-left: 4px solid #FF00C8;">
+                                <h5 class="fw-bold text-accent mb-3">5 KM - Iniciantes</h5>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Partida</h6>
+                                    <p class="small mb-0">Parque Verde do Mondego</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Ponto 1</h6>
+                                    <p class="small mb-0">Ponte Pedro e Inês</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Ponto 2</h6>
+                                    <p class="small mb-0">Margem do Mondego</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Chegada</h6>
+                                    <p class="small mb-0">Parque Verde do Mondego</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="p-4 rounded" style="background-color: rgba(66, 14, 118, 0.2); border-left: 4px solid #FF00C8;">
+                                <h5 class="fw-bold text-accent mb-3">10 KM - Avançado</h5>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Partida</h6>
+                                    <p class="small mb-0">Parque Verde do Mondego</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Ponto 1</h6>
+                                    <p class="small mb-0">Centro Histórico</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Ponto 2</h6>
+                                    <p class="small mb-0">Universidade de Coimbra</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Ponto 3</h6>
+                                    <p class="small mb-0">Baixa da Cidade</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="fw-bold">Chegada</h6>
+                                    <p class="small mb-0">Parque Verde do Mondego</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- O que está incluído -->
+                <section class="mb-5">
+                    <h2 class="section-title">O que está incluído</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="feature-list list-unstyled">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    T-shirt técnica oficial do evento
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    Dorsal com chip de cronometragem
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    Medalha de participação
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    Seguro de participante
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="feature-list list-unstyled">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    Postos de hidratação
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    Lanche final
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    Transporte de regresso
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF00C8" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                    Apoio médico durante o evento
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Coluna Direita: Inscrição -->
+            <div class="col-lg-4">
+                <div class="p-4 rounded" style="background-color: rgba(66, 14, 118, 0.2); border: 2px solid #FF00C8;">
+                    <h3 class="fw-bold mb-4 text-center">Inscreva-se Agora</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="distance" class="form-label fw-bold">Distância</label>
+                            <select class="form-select" id="distance">
+                                <option value="5km">5 KM - Iniciantes</option>
+                                <option value="10km">10 KM - Avançado</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="size" class="form-label fw-bold">Tamanho da T-shirt</label>
+                            <select class="form-select" id="size">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-accent w-100 fw-bold">Inscrever-se por 15€</button>
+                    </form>
                 </div>
             </div>
         </div>
-        
-<div class="navbar-nav ms-auto">
-    <a class="nav-link text-light " href="login.html" role="button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-        </svg>  
-    </a>
-</div>
     </div>
-</nav>
-<div class="container-fluid p-0">
-    <div class="row g-0" style="min-height: 100vh;">
-        
-        <div class="col-md-6 p-0 ">
-            <img src="imgs/AV-neonrun-2016-2299SAM_9014.jpg" alt="" class="w-100 h-100" style=" object-fit: cover;">
-        </div>
+    
 
-        
-        <div class="col-md-6 d-flex align-items-center justify-content-center" style="min-height: 500px;">
-            <div style="width: 400px; padding: 2rem;">
-                <form action="trataInscricao.php" method="get">
-                    <div> Evento1 <?php echo $eventoID ?></div>
-                    <div>
-                        <label for="" class="text-white">Nome</label>
-                        <input id="f-nome" name="nome" type="text" class="form-control" placeholder="introduza o seu nome">
-                        <label for="" class="text-white">Email</label>
-                        <input id="f-email" name="email" type="email" class="form-control" placeholder="introduza o seu email">
-                        <label for="" class="text-white">Telefone</label>
-                        <input id="f-ntel" name="ntel" type="tel" class="form-control" placeholder="nº de telefone">
-                    </div>
-                    <div class="mt-3">
-                        <a class="btn btn- primarybtn-sm bg-primary border-primary text-white" href="#" role="button">Inscrever</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<footer class="mt-auto bg-primary text-white text-center py-3">
+<footer class="mt-5 bg-primary text-white pt-5 pb-3">
     <div class="container">
-        <p class="mb-0">&copy; 2025 Coimbra Running Club. Todos os direitos reservados.</p>
+        <div class="row g-4">
+            <!-- Coluna 1: Sobre o Clube -->
+            <div class="col-md-4 text-center text-md-start">
+                <h5 class="fw-bold mb-3">Coimbra Running Club</h5>
+                <p class="small mb-3">
+                    Unidos pela paixão de correr. Junta-te à nossa comunidade e descobre o prazer de correr em Coimbra.
+                </p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                    <!-- Redes Sociais -->
+                    <a href="#" class="text-white" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Strava">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M6.731 0 2 9.125h2.788L6.73 5.497l1.93 3.628h2.766L6.731 0zm4.694 9.125-1.372 2.756L8.68 9.125H6.547L10.053 16l3.484-6.875h-2.112z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:info@coimbrarunning.pt" class="text-white" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Links Rápidos -->
+            <div class="col-md-4 text-center">
+                <h5 class="fw-bold mb-3">Links Rápidos</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="Home.html" class="text-white text-decoration-none hover-link">Home</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="Eventos.html" class="text-white text-decoration-none hover-link">Eventos</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="Merch.html" class="text-white text-decoration-none hover-link">Merch</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="AboutUs.html" class="text-white text-decoration-none hover-link">About Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Contacto -->
+            <div class="col-md-4 text-center text-md-end">
+                <h5 class="fw-bold mb-3">Contacto</h5>
+                <ul class="list-unstyled small">
+                    <li class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill me-2" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                        Coimbra, Portugal
+                    </li>
+                    <li class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                        </svg>
+                        info@coimbrarunning.pt
+                    </li>
+                    <li class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill me-2" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        +351 XXX XXX XXX
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Separador -->
+        <hr class="my-4 border-white opacity-25">
+
+        <!-- Direitos Autorais -->
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start small">
+                <p class="mb-2 mb-md-0">&copy; 2025 Coimbra Running Club. Todos os direitos reservados.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end small">
+                <a href="#" class="text-white text-decoration-none hover-link me-3">Política de Privacidade</a>
+                <a href="#" class="text-white text-decoration-none hover-link">Termos de Uso</a>
+            </div>
+        </div>
     </div>
 </footer>
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>    
+</html>
       
