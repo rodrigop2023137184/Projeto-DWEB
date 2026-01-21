@@ -1,4 +1,4 @@
 Projeto de DWEB
 Instruções modo admin:
-email: admincrc@gmail.com
+email: admin@crc.pt
 password: admin123
